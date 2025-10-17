@@ -27,5 +27,5 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args: >
-            -Dsonar.projectKey=daniel-infra_test-sonarqube-setup
-            -Dsonar.organization=daniel-infra
+            -Dsonar.projectKey=Daniel-Infra_test-sonarqube-setup
+            -Dsonar.organization=Daniel-Infra
