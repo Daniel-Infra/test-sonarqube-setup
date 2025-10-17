@@ -19,13 +19,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Run SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args: >
+            -Dsonar.organization=daniel-infra
             -Dsonar.projectKey=Daniel-Infra_test-sonarqube-setup
-            -Dsonar.organization=Daniel-Infra
+            -Dsonar.projectName=Daniel-Infra_test-sonarqube-setup
+            -Dsonar.sources=.
+            -Dsonar.branch.name=${{ github.ref_name }}
